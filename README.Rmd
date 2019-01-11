@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# ggcalheatmap
+
+The goal of ggcalheatmap is to plot a calendar heatmap with a `ggplot2` backend.
+I found recently that [`ggTimeSeries`](https://github.com/AtherEnergy/ggTimeSeries) as the same functionnality with its
+function `ggplot_calendar_heatmap`. There should not be lot of differences between the two packages but the default parameters.
+Also, by default, `ggcalheatmap` can produce interactive calendar heatmaps.
+
+## Installation
+
+You can install ggcalheatmap with:
+
+```{r install, eval=FALSE}
+remotes::install_github("denrou/ggcalheatmap")
+```
+
+## Example
+
+This is a basic example where we want to look at all contributions stored in all of our git repositories stored in `HOME`:
+
+```{r example_install, eval=FALSE}
+remotes::install_github("denrou/ggit")
+# Yes this is an auto-promotion :)
+```
+
+```{r contribution}
+df <- ggit::contributions(path = Sys.getenv("HOME"))
+df
+```
+
+```{r calendar_heatmap}
+ggcalheatmap::ggcalheatmap(df[lubridate::year(df[["when"]]) >= 2017, ], "when", "n", tooltip = FALSE)
+```
+
+The `tooltip` parameter, if TRUE, creates an interactive plot that can be placed in any rmarkdown document. It uses [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html)

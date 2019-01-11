@@ -1,0 +1,22 @@
+Package: ggcalheatmap
+Title: Calendar Heatmap Using `ggplot2`
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Denis",
+           family = "Roussel",
+           role = c("aut", "cre"),
+           email = "deroussel@gmail.com")
+Description: Plot a calendar heatmap using ggplot2
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    data.table,
+    lubridate,
+    forcats,
+    glue,
+    ggplot2,
+    magrittr
+Suggests: 
+    ggiraph
+RoxygenNote: 6.1.1
